@@ -13,7 +13,7 @@ class State(BaseModel, Base):
     name = Column(String(128), nullable=False)
     if getenv("HBNB_TYPE_STORAGE") == "db":
         cities = relationship("City", backref="state", cascade="delete")
-    if getenv("HBNB_TYPE_STORAGE") == "file":
+    else:
         @property
         def cities(self):
             """returns the list of City instances"""
