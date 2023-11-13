@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-'''Flask module documentation'''
+'''Flask module documentation for State City
+listens to host='0.0.0.0', port=5000
+renders the html page
+'''
 from flask import Flask, render_template
-from models import storage, State, City
+from models import storage
 
 
 app = Flask(__name__)
