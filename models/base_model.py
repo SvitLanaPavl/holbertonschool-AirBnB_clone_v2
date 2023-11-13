@@ -25,12 +25,12 @@ class BaseModel:
         else:
             
             for key, value in kwargs.items():
+                format = "%Y-%m-%dT%H:%M:%S.%f"
                 if key != "__class__":
                     if key in ["created_at", "updated_at"]:
-                        setattr(self, key, datetime.strptime(value, format))
-                    else:
-                        setattr(self, key, value)
-        # del kwargs['__class__']
+                        if not isinstance(value, datetime):
+                            value = datetime.strptime(value, format)
+                    setattr(self, key, value)
         self.__dict__.update(kwargs)
 
     def __str__(self):

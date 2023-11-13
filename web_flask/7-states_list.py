@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''Flask module documentation'''
 from flask import Flask, render_template
-from markupsafe import escape
 from models import storage
 
 
