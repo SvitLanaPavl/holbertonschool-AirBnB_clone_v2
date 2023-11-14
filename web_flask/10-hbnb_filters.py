@@ -4,7 +4,9 @@ Listens to host='0.0.0.0', port=5000
 renders the html page'''
 from flask import Flask, render_template
 from models import storage
-from models import City, State, Amenity
+from models.city import City
+from models.state import State
+from models.amenity import Amenity
 
 
 app = Flask(__name__)
@@ -20,7 +22,7 @@ def display_html_filters():
                            cities=cities, amenities=amenities)
 
 
-@app.teardown_appcontent
+@app.teardown_appcontext
 def close(exc):
     '''teardown closing storage'''
     storage.close()
