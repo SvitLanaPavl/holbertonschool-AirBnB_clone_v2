@@ -14,20 +14,17 @@ app = Flask(__name__)
 def display_html():
     '''Displays the html page'''
     states = storage.all('State').values()
-    return render_template('9-states.html', states=states)
+    return render_template('9-states.html', states=states, condition='states')
 
 
 @app.route('/states/<id>', strict_slashes=False)
 def display_html_id(id):
     '''Display the html with id'''
     states = storage.all('State').values()
-    state = None
-    for st in states:
-        if st.id == id:
-            state = st
-            break
-    return render_template('9-states.html', state=state)
-
+    for state in states:
+        if state.id == id:
+            return render_template('9-states.html', state=state, condition='state')
+    return render_template('9-states.html', condition='not_found')
 
 @app.teardown_appcontext
 def close(exc):
