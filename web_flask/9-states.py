@@ -21,10 +21,12 @@ def display_html():
 def display_html_id(id):
     '''Display the html with id'''
     states = storage.all('State').values()
-    for state in states:
-        if state.id == id:
+    state = None
+    for st in states:
+        if st.id == id:
+            state = st
             return render_template('9-states.html', state=state)
-    return render_template('9-states.html')
+    return render_template('9-states.html', state=state)
 
 
 @app.teardown_appcontext
