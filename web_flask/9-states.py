@@ -23,8 +23,8 @@ def display_html_id(id):
     states = storage.all('State').values()
     for state in states:
         if state.id == id:
-            return render_template('9-states', state=state)
-    return render_template('9-states')
+            return render_template('9-states.html', state=state)
+        return render_template('9-states.html')
 
 
 @app.teardown_appcontext
