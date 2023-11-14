@@ -25,7 +25,7 @@ def display_html_id(id):
     for st in states:
         if st.id == id:
             state = st
-            return render_template('9-states.html', state=state)
+            break
     return render_template('9-states.html', state=state)
 
 
