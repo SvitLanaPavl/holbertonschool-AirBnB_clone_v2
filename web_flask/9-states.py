@@ -24,7 +24,7 @@ def display_html_id(id):
     for state in states:
         if state.id == id:
             return render_template('9-states.html', state=state)
-        return render_template('9-states.html')
+    return render_template('9-states.html')
 
 
 @app.teardown_appcontext
@@ -34,4 +34,4 @@ def close(exc):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
